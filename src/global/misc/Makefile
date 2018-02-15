@@ -72,6 +72,8 @@ OBJS      = $(LB)/MGlobal.o \
 	$(LB)/MComptonEvent.o \
 	$(LB)/MMuonEvent.o \
 	$(LB)/MPhotoEvent.o \
+	$(LB)/MPETEvent.o \
+	$(LB)/MMultiEvent.o \
 	$(LB)/MUnidentifiableEvent.o \
 	$(LB)/MParser.o \
 	$(LB)/MFunction.o \
