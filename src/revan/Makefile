@@ -30,6 +30,7 @@ GOBJS = $(LB)/MInterfaceRevan.o \
 
 LOBJS = $(LB)/MGeometryRevan.o \
 	$(LB)/MRawEventIncarnations.o \
+	$(LB)/MRawEventIncarnationList.o \
 	$(LB)/MRawEventAnalyzer.o \
 	$(LB)/MFileEventsEvta.o \
 	$(LB)/MFileDecay.o \
@@ -86,18 +87,18 @@ all: $(PRG)
 lib: $(SLOBJ)
 
 link:
-		@$(LINK) $(shell pwd)/inc/*.h $(IN)
-		@rm -f $(IN)/LinkDef.h
+	@$(LINK) $(shell pwd)/inc/*.h $(IN)
+	@rm -f $(IN)/LinkDef.h
 
 clean:
-		@rm -f src/*~
-		@rm -f src/\#*
-		@rm -f inc/*~
-		@rm -f inc/\#*
-		@rm -f *~
-		@rm -f \#*
-		@rm -f $(BN)/revan
-		@rm -f $(MOBJS) $(GOBJS) $(LOBJS) $(SGOBJ) $(SLOBJ)
+	@rm -f src/*~
+	@rm -f src/\#*
+	@rm -f inc/*~
+	@rm -f inc/\#*
+	@rm -f *~
+	@rm -f \#*
+	@rm -f $(BN)/revan
+	@rm -f $(MOBJS) $(GOBJS) $(LOBJS) $(SGOBJ) $(SLOBJ)
 
 
 #----------------------------------------------------------------
