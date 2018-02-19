@@ -239,7 +239,7 @@ bool MResponseEventQualityTMVAEventFile::Analyze()
   }
   
   // We require a successful reconstruction 
-  MRawEventList* REList = m_ReReader->GetRawEventList();
+  MRawEventIncarnations* REList = m_ReReader->GetRawEventList();
   if (REList->HasOptimumEvent() == false) {
     return true;
   }

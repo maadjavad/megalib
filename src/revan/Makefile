@@ -29,7 +29,7 @@ GOBJS = $(LB)/MInterfaceRevan.o \
 	$(LB)/MGUIReconstructedSpectrum.o \
 
 LOBJS = $(LB)/MGeometryRevan.o \
-	$(LB)/MRawEventList.o \
+	$(LB)/MRawEventIncarnations.o \
 	$(LB)/MRawEventAnalyzer.o \
 	$(LB)/MFileEventsEvta.o \
 	$(LB)/MFileDecay.o \
