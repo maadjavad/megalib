@@ -37,6 +37,7 @@ LOBJS = $(LB)/MGeometryRevan.o \
 	$(LB)/MERConstruction.o \
 	$(LB)/MERNoising.o \
 	$(LB)/MERCoincidence.o \
+	$(LB)/MEREventClusterizerDataSet.o \
 	$(LB)/MERHitClusterizer.o \
 	$(LB)/MERTrack.o \
 	$(LB)/MERTrackPearson.o \

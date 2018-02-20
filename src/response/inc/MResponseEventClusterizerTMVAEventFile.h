@@ -1,5 +1,5 @@
 /*
- * MResponseMultipleComptonEventFile.h
+ * MResponseEventClusterizerTMVAEventFile.h
  *
  * Copyright (C) by Andreas Zoglauer.
  * All rights reserved.
@@ -9,8 +9,8 @@
  */
 
 
-#ifndef __MResponseMultipleComptonEventFile__
-#define __MResponseMultipleComptonEventFile__
+#ifndef __MResponseEventClusterizerTMVAEventFile__
+#define __MResponseEventClusterizerTMVAEventFile__
 
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -25,11 +25,12 @@ using namespace std;
 
 // MEGAlib libs:
 #include "MGlobal.h"
-#include "MResponseMultipleCompton.h"
-#include "MERCSRDataSet.h"
+#include "MEREventClusterizerDataSet.h"
+#include "MResponseBuilder.h"
 #include "MRESE.h"
 #include "MRERawEvent.h"
 #include "MRETrack.h"
+
 
 // Forward declarations:
 
@@ -37,14 +38,14 @@ using namespace std;
 ////////////////////////////////////////////////////////////////////////////////
 
 
-class MResponseMultipleComptonEventFile : public MResponseMultipleCompton
+class MResponseEventClusterizerTMVAEventFile : public MResponseBuilder
 {
   // public interface:
  public:
   //! Default constructor
-  MResponseMultipleComptonEventFile();
+  MResponseEventClusterizerTMVAEventFile();
   //! Default destructor
-  virtual ~MResponseMultipleComptonEventFile();
+  virtual ~MResponseEventClusterizerTMVAEventFile();
   
   //! Return a brief description of this response class
   static MString Description();
@@ -72,17 +73,6 @@ class MResponseMultipleComptonEventFile : public MResponseMultipleCompton
   bool Store(unsigned int SequenceLength, bool IsGood);
   
   
-  //! Find the first two interaction in the simulated event
-  bool FindFirstInteractions(const vector<MRESE*>& RESEs, MRESE*& First, MRESE*& Second);
-  //! Find the correct interaction sequence, or return false if non can be found  
-  bool FindCorrectSequence(const vector<MRESE*>& RESEs, vector<MRESE*>& Sorted);
-  //! Return true if all RESEs are completely aborbed within the given measurement uncertainties
-  bool AreCompletelyAbsorbed(const vector<MRESE*>& RESEs, MRERawEvent* RE);
-  //! Return the number of Compton interactions
-  unsigned int NumberOfComptonInteractions(vector<int> AllSimIds);
-
-  //! Teach the neural network the events
-  void Teach();
 
   // private methods:
  private:
@@ -91,26 +81,22 @@ class MResponseMultipleComptonEventFile : public MResponseMultipleCompton
 
   // protected members:
  protected:
-   //! Use path to first IA
-   bool m_UsePathToFirstIA;
-   
-  //! The data storage for good events, one per sequence length
-  vector<TTree*> m_TreeGood;
-  //! The data storage for bad events
-  vector<TTree*> m_TreeBad;
-   
-  // The TTree input data for each possibility, one per sequence length:
-  MERCSRDataSet m_DS;
+  // The data sets, one per number of x and y hit strips
+  vector<MEREventClusterizerDataSet*> m_DataSets;
   
-  //! All possible Permutations for fast access:
-  //! Build the following way: [Sequence length] [Permuation ID] [Index]
-  vector<vector<vector<unsigned int>>> m_Permutator;
+  //! The data storage for the events, one per number of x and y hit strips
+  vector<TTree*> m_Trees;
+   
+  //! The maximum allowed number of hits
+  unsigned int m_MaxNHits;
+  //! The maximum allowed number of groups
+  unsigned int m_MaxNGroups;
   
-
+  
   
 #ifdef ___CINT___
  public:
-  ClassDef(MResponseMultipleComptonEventFile, 0) // no description
+  ClassDef(MResponseEventClusterizerTMVAEventFile, 0) // no description
 #endif
 
 };

@@ -24,6 +24,7 @@ LOBJS = $(LB)/MResponseCreator.o \
 	$(LB)/MResponseManipulator.o \
 	$(LB)/MResponseBuilder.o \
 	$(LB)/MResponseBase.o \
+	$(LB)/MResponseEventClusterizerTMVAEventFile.o \
 	$(LB)/MResponseClusteringDSS.o \
 	$(LB)/MResponseTracking.o \
 	$(LB)/MResponseMultipleCompton.o \
