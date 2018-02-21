@@ -21,6 +21,7 @@ GOBJS = $(LB)/MInterfaceRevan.o \
 	$(LB)/MGUIERAlgorithm.o \
 	$(LB)/MGUIOptionsGeneral.o \
 	$(LB)/MGUIOptionsCoincidence.o \
+	$(LB)/MGUIOptionsEventClustering.o \
 	$(LB)/MGUIOptionsHitClustering.o \
 	$(LB)/MGUIOptionsTracking.o \
 	$(LB)/MGUIOptionsCSR.o \
@@ -37,6 +38,8 @@ LOBJS = $(LB)/MGeometryRevan.o \
 	$(LB)/MERConstruction.o \
 	$(LB)/MERNoising.o \
 	$(LB)/MERCoincidence.o \
+	$(LB)/MEREventClusterizer.o \
+	$(LB)/MEREventClusterizerTMVA.o \
 	$(LB)/MEREventClusterizerDataSet.o \
 	$(LB)/MERHitClusterizer.o \
 	$(LB)/MERTrack.o \

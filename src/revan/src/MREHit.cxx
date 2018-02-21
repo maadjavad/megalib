@@ -40,6 +40,7 @@ using namespace std;
 #include "MStreams.h"
 #include "MTokenizer.h"
 
+
 ////////////////////////////////////////////////////////////////////////////////
 
 
@@ -155,7 +156,7 @@ MREHit::MREHit(MREHit *Hit) : MRESE((MRESE *) Hit)
 {
   // Special copy-constructor
 
-  m_IsValid = Hit->m_IsValid;
+  m_IsValid = Hit->m_IsValid; 
   m_SubElementType = MRESE::c_Hit;
   m_FixedResolutions = Hit->m_FixedResolutions;
 } 
